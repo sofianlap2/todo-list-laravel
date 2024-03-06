@@ -1,7 +1,8 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\SecondTodoController;
+use App\Http\Controllers\TodoController;
+use App\Http\Controllers\TodosController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -32,11 +33,13 @@ Route::get('login', [AuthController::class, 'loginIndex'])->name('login.loginInd
 Route::post('login', [AuthController::class, 'doLogin'])->name('login.doLogin');
 Route::delete('logout', [AuthController::class, 'logout'])->name('login.logout');
 
-Route::get('profile/{id}', [AuthController::class, 'getProfile'])->name('profile.getProfile');
-Route::put('profile/{id}', [AuthController::class, 'updateProfile'])->name('profile.updateProfile');
+Route::get('profile/{id}', [AuthController::class, 'getProfile'])->name('profile.getProfile')->middleware('auth')->middleware('role:user');
+Route::put('profile/{id}', [AuthController::class, 'updateProfile'])->name('profile.updateProfile')->middleware('auth')->middleware('role:user');
 
 
 
-Route::resource('todo', SecondTodoController::class)->middleware('auth');
+Route::resource('todo', TodoController::class)->middleware('auth')->middleware('role:user');
 
-Route::get('todo/{todo}', [SecondTodoController::class, 'destroy'])->name('todo.destroy')->middleware('auth');
+Route::get('todo/{todo}', [TodoController::class, 'destroy'])->name('todo.destroy')->middleware('auth')->middleware('role:user');
+
+Route::resource('todos', TodosController::class)->middleware('auth')->middleware('role:admin');

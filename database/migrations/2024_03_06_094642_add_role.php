@@ -11,14 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('second_todos', function (Blueprint $table) {
-            $table->id();
-            $table->longText('title');
-            $table->boolean('is_completed')->default(false);
-            $table->timestamps();
+        Schema::table('users', function(Blueprint $table) {
+            $table->enum('role', ['user', 'admin'])->default("user");
         });
-
-
     }
 
     /**
@@ -26,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('second_todos');
+        Schema::table("users", function(Blueprint $table) {
+            $table->dropColumn("role");
+        });
     }
 };

@@ -21,7 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'image'
+        'image',
+        'roles'
     ];
 
     /**
@@ -46,6 +47,6 @@ class User extends Authenticatable
 
     public function todos()
     {
-        return $this->hasMany(SecondTodo::class);
+        return $this->hasMany(TodoModel::class);
     }
 }

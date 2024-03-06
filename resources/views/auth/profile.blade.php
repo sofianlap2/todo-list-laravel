@@ -34,6 +34,6 @@
             {{ $message }}
         @enderror
         <br>
-        <input type="submit" value="VALIDER">
+        <input class="btn" type="submit" value="VALIDER">
     </form>
 @endsection

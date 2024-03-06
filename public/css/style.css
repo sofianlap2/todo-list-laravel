@@ -1,0 +1,108 @@
+.todo-container {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.11);
+    text-align: center;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.811);
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header h1 {
+    margin: 0 !important;
+}
+
+.header__infos {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.todo-container h1 {
+    text-transform: uppercase;
+    font-family: Algerian;
+    letter-spacing: 3px;
+    margin-top: 10%;
+}
+
+.todo-container input[type="email"],
+.todo-container input[type="text"],
+.todo-container input[type="password"] {
+    width: 300px;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: beige;
+}
+
+.todo_form {
+    margin-bottom: 40px;
+}
+
+.btn {
+    min-width: 145px;
+    min-height: 40px;
+    border: 1px solid black;
+    background: linear-gradient(to right, gray, rgba(0, 0, 0, 0.11));
+    border-radius: 10px;
+    font-weight: bold;
+    padding: 5px 20px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: linear-gradient(to left, gray, rgba(0, 0, 0, 0.11));
+}
+
+.todo-container table {
+    margin: auto;
+    width: 60%;
+}
+
+.todo-container table th {
+    font-size: 20px;
+    padding-bottom: 8px;
+    font-style: italic;
+}
+
+.todo-container table td {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.btn-action {
+    display: block;
+}
+
+.box__table {
+    margin: 10px 0;
+}
+
+.box__table label {
+    display: inline-block;
+    width: 140px;
+    text-align: right;
+    font-weight: bold;
+}
+
+.link {
+    font-size: 14px;
+    background-color: beige;
+    color: black;
+    border: 10px;
+    min-width: 145px;
+    min-height: 40px;
+    padding: 5px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}

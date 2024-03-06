@@ -1,4 +1,4 @@
-@extends('layout/base')
+@extends('layout/basic')
 
 @section('title', 'register')
 
@@ -7,30 +7,34 @@
 
     <form action="{{ route('register.inscription') }}" method="POST" enctype="multipart/form-data">
         @csrf
-        <label for="">name :</label>
-        <input type="text" name="name" placeholder="name" value="{{ old('name') }}">
+        <div class="box__table">
+            <label for="">name :</label>
+            <input type="text" name="name" placeholder="name" value="{{ old('name') }}">
+        </div>
         @error('name')
-        {{ $message }}
+            {{ $message }}
         @enderror
-        <br>
-        <label for="">email :</label>
-        <input type="email" name="email" placeholder="email" value="{{ old('email') }}">
+        <div class="box__table">
+            <label for="">email :</label>
+            <input type="email" name="email" placeholder="email" value="{{ old('email') }}">
+        </div>
         @error('email')
-        {{ $message }}
+            {{ $message }}
         @enderror
-        <br>
-        <label for="">password :</label>
-        <input type="password" name="password" placeholder="password">
+        <div class="box__table">
+            <label for="">password :</label>
+            <input type="password" name="password" placeholder="password">
+        </div>
         @error('password')
-        {{ $message }}
+            {{ $message }}
         @enderror
-        <br>
-        <label for="">Image</label>
-        <input type="file" name="file_image" id="">
+        <div class="box__table">
+            <label for="">Image</label>
+            <input type="file" name="file_image" id="">
+        </div>
         @error('file_image')
-        {{ $message }}
+            {{ $message }}
         @enderror
-        <br>
-        <input type="submit" value="VALIDER">
+        <input class="btn" type="submit" value="VALIDER">
     </form>
 @endsection

@@ -21,10 +21,6 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
-
-        Schema::table('second_todos', function(Blueprint $table) {
-            $table->foreignIdFor(User::class)->nullable()->constrained()->cascadeOnDelete();
-        });
     }
 
     /**

@@ -24,6 +24,6 @@
         <input type="radio" value="0" name="is_completed" id=""><label for="">Pending</label>
     @endif
 
-    <input type="submit" value="Valider">
+    <input class="btn" type="submit" value="Valider">
 </form>
 @endsection

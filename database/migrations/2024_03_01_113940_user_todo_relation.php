@@ -22,6 +22,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::table('todo_models', function (Blueprint $table) {
+            $table->dropConstrainedForeignIdFor(User::class);
+        });
     }
 };

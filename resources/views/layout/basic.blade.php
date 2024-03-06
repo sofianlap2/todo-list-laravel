@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body class="todo-container">
-    @include('layout/header')
     <div class="container">
         @yield('content')
     </div>

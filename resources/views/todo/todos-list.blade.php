@@ -4,20 +4,6 @@
 
 @section('content')
 
-    <div>
-        @auth
-            {{ Auth::user()->name }}
-            <form method="POST" action="{{ route('login.logout') }}">
-                @method('delete')
-                @csrf
-                <button>Se deconnecter</button>
-                <a href="{{ route('profile.getProfile', ['id' => Auth::user()->id ]) }}">My profile</a>
-            </form>
-        @endauth
-        @guest
-            <a href="{{ route('login.index') }}">Se connecter</a>
-        @endguest
-    </div>
     @if (session()->has('success'))
         <div class="alert alert-success">
             {{ session()->get('success') }}
@@ -35,17 +21,17 @@
     <form action="{{ route('todo.store') }}" method="POST">
         @csrf
         <input name="title" type="text" placeholder="Add todo">
-        <input type="submit" value="Add todo">
+        <input class="btn" type="submit" value="Add todo">
     </form>
     <br>
-    <table>
+    <table cellspacing="0">
         <thead>
             <tr>
                 <th>N°</th>
                 <th>title</th>
                 <th>Created At</th>
                 <th>Status</th>
-                <td>Actions</td>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>

@@ -3,21 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\SecondTodo;
+use App\Models\TodoModel;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
-class SecondTodoController extends Controller
+class TodoController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //$todos = SecondTodo::all();
-        $todos = SecondTodo::where('user_id', Auth::user()->id)->get();
+        //$todos = TodoModel::all();
+        $todos = TodoModel::where('user_id', Auth::user()->id)->get();
         return view('todo/todos-list', compact('todos'));
     }
 
@@ -42,7 +42,7 @@ class SecondTodoController extends Controller
         $todoData = [
             'title' => $request->get('title')
         ];
-        $post = new SecondTodo($todoData);
+        $post = new TodoModel($todoData);
         $post->user()->associate($user);
         $post->save();
 
@@ -54,7 +54,7 @@ class SecondTodoController extends Controller
      */
     public function edit(string $id)
     {
-        $todo = SecondTodo::where('id', $id)->first();
+        $todo = TodoModel::where('id', $id)->first();
         return view('todo/edit-todo', compact('todo'));
     }
 
@@ -71,7 +71,7 @@ class SecondTodoController extends Controller
             return redirect()->route('todo.edit')->withErrors($validator);
         };
 
-        $todo = SecondTodo::where('id', $id)->first();
+        $todo = TodoModel::where('id', $id)->first();
         $todo->title = $request->get('title');
         $todo->is_completed = $request->get('is_completed');
         $todo->save();
@@ -84,7 +84,7 @@ class SecondTodoController extends Controller
      */
     public function destroy(string $id)
     {
-        SecondTodo::where('id', $id)->delete();
+        TodoModel::where('id', $id)->delete();
 
         return redirect()->route('todo.index')->with('success', 'TodoDeleted');
     }
