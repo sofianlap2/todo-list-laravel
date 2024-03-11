@@ -25,6 +25,9 @@
         <a href="{{ route('register.index') }}">Create new account ?</a>
         <br>
         <br>
+        <a href="{{ route('password.request') }}">forgot password ?</a>
+        <br>
+        <br>
         <input class="btn" type="submit" value="VALIDER">
     </form>
 @endsection
