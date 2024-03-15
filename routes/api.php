@@ -22,6 +22,9 @@ use Illuminate\Support\Facades\Route;
     return $request->user();
 });*/
 
+/*Route::middleware('auth:sanctum')->group(function () {
+    // Protected routes
+});*/
 
 Route::post('register', [ControllersAuthControllerApi::class, 'inscription'])->name('apiregister.inscription');
 Route::post('login', [ControllersAuthControllerApi::class, 'doLogin'])->name('apilogin.doLogin');

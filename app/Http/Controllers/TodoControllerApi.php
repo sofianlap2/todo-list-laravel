@@ -62,12 +62,13 @@ class TodoControllerApi extends Controller
             throw ValidationException::withMessages($validator->errors()->toArray());
         };
 
+        
         $todo = TodoModel::where('id', $id)->first();
         $todo->title = $request->get('title');
         $todo->is_completed = $request->get('is_completed');
         $todo->save();
 
-        return response()->json(['msg' => 'Todo edited']);
+        return response()->json(['msg' => 'Todo edited', 'id' => $id]);
     }
 
     /**
